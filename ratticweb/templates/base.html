@@ -48,6 +48,11 @@
 </div>
 <div id="footer">
   <div class="container-fluid">
+  <form name="encform" id="encform" method="post">
+   {% csrf_token %}
+   Key: <input type="password" name="encryptkey" id="encryptkey" style="height:15px;" placeholder="Encrypt Key is Empty!!!">
+   <input type="hidden" name="hiddenkey" id="hiddenkey">
+  </form>
       <p class="muted credit">{% blocktrans %}Password management powered by{% endblocktrans %} <a href="http://rattic.org/">{% trans "RatticDB" %}</a><span class='hidden-phone'>, {% trans "built by" %} <a href="https://twitter.com/smarthall">@smarthall</a> {% trans "and" %} <a href="https://twitter.com/zemmiph0bia">@zemmiph0bia</a>. | <a href="https://github.com/tildaslash/RatticWeb/issues/new">{% trans "Report an issue" %}</a> | <a href="https://twitter.com/RatticDB">{% trans "Contact Us" %}</a></span></p>
   </div>
 </div>
@@ -58,5 +63,8 @@
 <script type="application/javascript" src="{% static "flash_detect/1.0.4/flash_detect_min.js" %}"></script>
 <script type="application/javascript" src="{% static "sjcl/1.0.0/sjcl.js" %}"></script>
 <script type="application/javascript" src="{% static "rattic/js/newcore.js" %}"></script>
+<script src="{% static "aes/aes.js" %}" ></script>
+<script src="{% static "aes/aesenc.js" %}" ></script>
+
 </body>
 </html>

@@ -17,6 +17,12 @@ def base_template_reqs(request):
         'rattic_logo': 'rattic/img/rattic_logo_normal.svg',
     }
 
+    if settings.ENCRYPT_PASSWORDS:
+        cntx['encryptpass'] = True
+        cntx['salt'] = settings.ENCRYPT_PASSWORDS
+    else:
+        cntx['encryptpass'] = False
+
     if settings.HELP_SYSTEM_FILES:
         cntx['helplinks'] = True
     else:

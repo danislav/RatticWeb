@@ -324,6 +324,9 @@ var RATTIC = (function ($, ZeroClipboard) {
 
     my.api.getCred(cred_id, function (data) {
         me.text(data['password']);
+	var cleartext = CryptoJS.AES.decrypt(me.text(), localStorage.getItem("aeskey"));
+	cleartext = cleartext.toString(CryptoJS.enc.Utf8);
+	me.text(cleartext);
       },
       function () {});
   }
@@ -332,6 +335,9 @@ var RATTIC = (function ($, ZeroClipboard) {
     var me = $(this),
       cred_id = me.data('cred_id');
     me.text(my.api.getCredWait(cred_id)['password']);
+	var cleartext = CryptoJS.AES.decrypt(me.text(), localStorage.getItem("aeskey"));
+	cleartext = cleartext.toString(CryptoJS.enc.Utf8);
+	me.text(cleartext);
   }
 
   function _parentFormSubmit() {
