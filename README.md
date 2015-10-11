@@ -35,6 +35,17 @@ curl -sk -H "Authorization: ApiKey USERNAME:API_KEY" -H "Accept: application/jso
 | openssl enc -d -aes-256-cbc -pass pass:"KEY_USED_TO_ENCRYPT"
 ```
 
+#### What do you think is a good configuration?
+Well, personally I would build:
+* ecrypted disk
+* nginx-naxsi
+* fail2ban
+* mariadb-galera
+* 2 or more nodes for HA
+* offsite backups
+
+Ispired by @ministryofjustice I can even automate and [dockerize](https://github.com/ministryofjustice/rattic-docker) the nodes
+
 #### Take the following into account:
 * The webpage should be served over HTTPS only, apart from a redirect from normal HTTP.
 * The filesystem in which the database is stored ~~should~~ can be protected with encryption.
