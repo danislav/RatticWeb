@@ -47,7 +47,7 @@ if (formenc.attachEvent) {
 }
 
 var formeditcred = document.getElementById('crededit');
-if (formeditcred.attachEvent) {
+if ( (formeditcred) && (formeditcred.attachEvent) ) {
     formeditcred.attachEvent("submit", encryptpass);
 } else {
     formeditcred.addEventListener("submit", encryptpass);
