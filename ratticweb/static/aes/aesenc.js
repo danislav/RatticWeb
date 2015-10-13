@@ -7,7 +7,7 @@ function savekey(e) {
         }
 }
 
-if (localStorage.getItem("aeskey").length < 1) {
+if (!(localStorage.getItem("aeskey"))) {
         if (confirm("You have to encrypt!\nCan you put now the key?\nIf not later just type it at the bottom and hit ENTER.")) {
                 var thestring = prompt("Enter Encrypt Key!!!");
                 if (thestring) {
