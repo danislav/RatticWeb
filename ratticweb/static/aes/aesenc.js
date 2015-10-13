@@ -1,8 +1,22 @@
 function savekey(e) {
-        localStorage.setItem("aeskey", document.getElementById("encryptkey").value);
-        alert('You just set the AES encryption passphrase.\nBe aware that this will encrypt/decrypt all passwords\nHappy Passwording!');
-	document.getElementById("encryptkey").value = "scrambled hahaha"
-	return false;
+        if (!(document.getElementById("encryptkey").value=="null")) {
+                localStorage.setItem("aeskey", document.getElementById("encryptkey").value);
+                alert('You just set the AES encryption passphrase.\nBe aware that this will encrypt/decrypt all passwords\nHappy Passwording!');
+                document.getElementById("encryptkey").value = "scrambled hahaha";
+                return false;
+        }
+}
+
+if (localStorage.getItem("aeskey").length < 1) {
+        if (confirm("You have to encrypt!\nCan you put now the key?\nIf not later just type it at the bottom and hit ENTER.")) {
+                var thestring = prompt("Enter Encrypt Key!!!");
+                if (thestring) {
+                        localStorage.setItem("aeskey",thestring);
+                        if (localStorage.getItem("aeskey").length < 1) {
+                                document.getElementById("id_password").style.visibility="hidden";
+                        }
+                }
+        }
 }
 
 document.getElementById("encryptkey").value = localStorage.getItem("aeskey");
