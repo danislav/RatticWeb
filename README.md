@@ -13,7 +13,7 @@ Because **only** the accounts with *view* access should be able to view a passwo
 #### Long answer:
 Users can fall into 3 main access groups: *No rights*, *Access rights* and *View rights*. *Access rights* is granted via the groups or LDAP group membership. To *view* the password the user also needs the encrypt key. This way even if you are a member of a group you need the *key* to 
 decrypt. This also adds the function of *private* passwords - with a key only you know. 
-Encrypted passwotds prevent someone to dump the database and view all the passwords, including 3rd party and sysadmins... yes sysadmins should not be able to *view* a password just because they administer the system.
+Encrypted passwords prevent someone to dump the database and view all the passwords, including 3rd party and sysadmins... yes sysadmins should not be able to *view* a password just because they administer the system.
 The *Password Management Solution* must provide storage, history, search, access etc. etc. while the real 
 password strings **must** be accessible **only** from the users.
 #### Why AES?
