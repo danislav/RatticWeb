@@ -326,12 +326,10 @@ var RATTIC = (function ($, ZeroClipboard) {
         me.text(data['password']);
 	var cleartext = CryptoJS.AES.decrypt(me.text(), localStorage.getItem("aeskey"));
 	if (cleartext.sigBytes > 0) {
-                console.log(cleartext);
                 cleartext = cleartext.toString(CryptoJS.enc.Utf8);
                 me.text(cleartext);
         } else {
                 me.text("Decrypt failed. Check the key.");
-                console.log(cleartext);
         }
       },
       function () {});
