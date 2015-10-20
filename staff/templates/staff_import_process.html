@@ -9,7 +9,7 @@
 {% include "cred_part_logomodal.html" with icons=icons txtfield='#id_iconname' imgfield='#logodisplay' %}
 <h1>{% trans "Password Import" %}</h1>
 
-<form class="form-horizontal" enctype="multipart/form-data" autocomplete="off" method="post">{% csrf_token %}
+<form id="crededit" class="form-horizontal" enctype="multipart/form-data" autocomplete="off" method="post">{% csrf_token %}
     {% for field in form %}
         <div class="control-group">
             {{ field.errors }}
