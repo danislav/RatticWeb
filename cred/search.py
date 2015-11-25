@@ -25,9 +25,9 @@ def cred_search(user, cfilter='special', value='all', sortdir='ascending', sort=
         cred_list = cred_list.filter(Q(group=group) | Q(groups=group))
         search_object = group
 
-    # Standard search, substring in title
+    # Standard search, substring in title, name or description
     elif cfilter == 'search':
-        cred_list = cred_list.filter(title__icontains=value)
+        cred_list = cred_list.filter(Q(title__icontains=value) | Q(tags__name__icontains=value) | Q(description__icontains=value) | Q(username__icontains=value))
         search_object = value
 
     # Search for the history of a cred
